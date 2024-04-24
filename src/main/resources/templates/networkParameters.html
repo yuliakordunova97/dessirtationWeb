@@ -12,7 +12,7 @@
 </div>
 
 <div class="container text-left mt-3">
-    <a href="/usSForm">Back to Backlog</a>
+    <a href="/list">Back to Backlog</a>
 </div>
 
 
@@ -28,10 +28,26 @@
                     <th>Time Reserves</th>
 
                 </tr>
-                <tr th:each="usS : ${usSList}">
-                    <td th:text="${usS.number}"></td>
-                    <td th:text="${usS.storyPoint}"></td>
-                    <td th:text="${usS.previousStories}"></td>
+                <tr th:each="gP : ${graphParametersList}">
+                    <td th:text="${gP.event}"></td>
+                    <td th:text="${gP.eventTE}"></td>
+                    <td th:text="${gP.eventTL}"></td>
+                    <td th:text="${gP.isCritical}"></td>
+                </tr>
+            </table>
+            <h2>Network Graph</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Number</th>
+                    <th>i</th>
+                    <th>j</th>
+                    <th>Reserve</th>
+                </tr>
+                <tr th:each="n : ${networkGraph}">
+                    <td th:text="${n.usS.number}"></td>
+                    <td th:text="${n.i}"></td>
+                    <td th:text="${n.j}"></td>
+                    <td th:text="${n.reserveFull}"></td>
                 </tr>
             </table>
         </div>
